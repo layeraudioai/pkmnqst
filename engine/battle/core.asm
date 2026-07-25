@@ -107,7 +107,7 @@ DoBattle:
 	ldh [hBattleTurn], a
 	call SpikesDamage
 .to_battle
-	jp BattleTurn
+	jp StartRealTimeBattle
 
 ; Old Safari Zone code from Red & Green.
 .SafariZoneBattleTurn

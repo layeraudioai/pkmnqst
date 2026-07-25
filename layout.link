@@ -219,10 +219,9 @@ ROMX $3d
 	"Bank 3d Garbage"
 ROMX $3e
 	"bank3E"
-	"Bank 3e Garbage"
+	"RealTimeBattle"
 ROMX $3f
 	"bank3F"
-	"Bank 3f Garbage"
 WRAM0
 	"Music engine RAM"
 	org $c200

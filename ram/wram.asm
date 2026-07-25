@@ -1498,6 +1498,22 @@ wDebugFlags2:: db
 wDebugFlags3:: db
 wDebugFlags4:: db
 
+SECTION "RTB_Variables", WRAM0
+
+wRTBPlayerX:: db
+wRTBEnemyX:: db
+wRTBPlayerCooldown:: db
+wRTBEnemyCooldown:: db
+wRTBRunCooldown:: db
+wRTBSwitchCooldown:: db
+wRTBQuickItem:: db
+wRTBQuickBall:: db
+wRTBPauseState:: db
+wRTBTimer:: db
+wRTBPlayerDirection:: db
+wRTBEnemyDirection:: db
+
+
 wGameData::
 wPlayerName:: ds 6
 

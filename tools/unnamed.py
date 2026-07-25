@@ -46,14 +46,15 @@ args = parser.parse_args()
 # Get list of object files
 objects = None
 if args.rootdir:
-	for line in subprocess.Popen(['make', '-C', args.rootdir, '-s', '-p', 'DEBUG=1'],
-			stdout=subprocess.PIPE).stdout.read().decode().split('\n'):
-		if line.startswith('pokegold-spaceworld-debug_obj :='):
-			objects = line[len('pokegold-spaceworld-debug_obj :='):].strip().split()
-			break
-	else:
-		print('Error: Object files not found!', file=sys.stderr)
-		sys.exit(1)
+	with subprocess.Popen(['make', '-C', args.rootdir, '-s', '-p', 'DEBUG=1'],
+			stdout=subprocess.PIPE, text=True) as proc:
+		for line in proc.stdout:
+			if line.startswith('pokegold-spaceworld-debug_obj :='):
+				objects = line[len('pokegold-spaceworld-debug_obj :='):].strip().split()
+				break
+		else:
+			print('Error: Object files not found!', file=sys.stderr)
+			sys.exit(1)
 
 # Scan all unnamed symbols from the symfile
 symbols_total = 0

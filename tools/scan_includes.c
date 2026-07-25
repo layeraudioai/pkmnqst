@@ -80,11 +80,12 @@ void scan_file(const char *filename, bool strict, bool top_level) {
 			if (!isspace((unsigned)before) && before != ':') {
 				break;
 			}
-			bool is_incbin = !strncmp(ptr, "INCBIN", 6) || !strncmp(ptr, "incbin", 6);
-			bool is_include = !strncmp(ptr, "INCLUDE", 7) || !strncmp(ptr, "include", 7);
+			bool is_incbin = (!strncasecmp(ptr, "INCBIN", 6) && !isalnum((unsigned char)ptr[6]));
+			bool is_include = (!strncasecmp(ptr, "INCLUDE", 7) && !isalnum((unsigned char)ptr[7]));
+
 			if (is_incbin || is_include) {
 				// Check that an INCLUDE/INCBIN ends as its own token
-				ptr += is_include ? 7 : 6;
+				ptr += is_include ? 7 : 6; // This check is now redundant but harmless
 				if (!isspace((unsigned)*ptr) && *ptr != '"') {
 					break;
 				}

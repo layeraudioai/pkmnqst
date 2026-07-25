@@ -138,6 +138,7 @@ INCLUDE "engine/battle/read_trainer_party.asm"
 SECTION "Battle Core", ROMX
 
 INCLUDE "engine/battle/core.asm"
+
 INCLUDE "engine/overworld/wildmons.asm"
 INCLUDE "engine/battle/start_battle.asm"
 
@@ -227,16 +228,19 @@ INCLUDE "engine/games/memory_minigame.asm"
 INCLUDE "engine/games/picross_minigame.asm"
 
 
-SECTION "Intro", ROMX
-
-INCLUDE "engine/movie/game_freak_intro.asm"
-INCLUDE "engine/movie/opening_cutscene.asm"
-
-
 SECTION "bank3E", ROMX
 
 INCLUDE "engine/gfx/load_gfx.asm"
 
+SECTION "RealTimeBattle", ROMX
+
+INCLUDE "engine/battle/real_time.asm"
+
+
+SECTION "Intro", ROMX
+
+INCLUDE "engine/movie/game_freak_intro.asm"
+INCLUDE "engine/movie/opening_cutscene.asm"
 
 SECTION "bank3F", ROMX
 

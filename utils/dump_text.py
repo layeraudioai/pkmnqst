@@ -220,7 +220,13 @@ if __name__ == '__main__':
             'source': bank_addr,
            }
     
-    with open(outfile, 'wb') if outfile != sys.stdout else outfile.buffer as f:
+    f = None
+    if outfile == sys.stdout:
+        f = sys.stdout.buffer
+    else:
+        f = open(outfile, 'wb')
+
+    with f:
         string = print_location(data)
         while(data['offset'] < data['len']):
             if (not ccmode):
@@ -255,4 +261,3 @@ if __name__ == '__main__':
                     break
             
         f.write(string.encode('utf-8'))
-        f.close()
