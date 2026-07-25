@@ -4,7 +4,7 @@ for gameboy
 source code
 ---
 
-POKEMON™
+POKEMON™ QUEST
 
 ---
 original readme below:
