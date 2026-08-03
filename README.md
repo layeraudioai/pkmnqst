@@ -1,4 +1,4 @@
-# POKEMON QUEST
+# POKEMON QUEST:SILENT HILLS
 for gameboy
 ---
 source code
